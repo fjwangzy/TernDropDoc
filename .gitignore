@@ -5,6 +5,7 @@ node_modules/
 docs/.vuepress/.temp
 docs/.vuepress/.cache
 docs/.vuepress/dist
+docs/.vuepress/public
 
 # Obsidian
 .obsidian/

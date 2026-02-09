@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const docsDir = path.resolve(__dirname, '..')
+const docsDir = path.resolve(__dirname, 'docs')
 
 // 自动生成导航栏
 function generateNavbar() {
@@ -25,19 +25,34 @@ function generateNavbar() {
         const subDir = path.join(docsDir, item.name)
         const files = fs.readdirSync(subDir)
 
-        // 查找第一个 .md 文件作为链接
-        const mdFile = files.find(f => f.endsWith('.md'))
-        if (mdFile) {
-            const linkName = mdFile.replace('.md', '.html')
+        // 查找所有 .md 文件
+        const mdFiles = files.filter(f => f.endsWith('.md'))
+
+        if (mdFiles.length === 0) continue
+
+        if (mdFiles.length === 1) {
+            // 单个文件：直接链接
+            const linkName = mdFiles[0].replace('.md', '.html')
             navbar.push({
                 text: item.name,
                 link: `/${item.name}/${linkName}`,
+            })
+        } else {
+            // 多个文件：创建下拉菜单
+            const children = mdFiles.map(f => ({
+                text: f.replace('.md', ''),
+                link: `/${item.name}/${f.replace('.md', '.html')}`,
+            }))
+            navbar.push({
+                text: item.name,
+                children: children,
             })
         }
     }
 
     return navbar
 }
+
 
 export default defineUserConfig({
     lang: 'en-US',

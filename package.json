@@ -1,0 +1,19 @@
+{
+  "name": "obsidian-vuepress-cms",
+  "version": "1.0.0",
+  "description": "An auto-publishing CMS using Obsidian, VuePress, and GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-rc.26",
+    "@vuepress/client": "^2.0.0-rc.26",
+    "@vuepress/theme-default": "^2.0.0-rc.122",
+    "sass": "^1.97.3",
+    "sass-embedded": "^1.97.3",
+    "vuepress": "^2.0.0-rc.26"
+  }
+}

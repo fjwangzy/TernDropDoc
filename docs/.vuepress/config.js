@@ -55,6 +55,7 @@ function generateNavbar() {
 
 
 export default defineUserConfig({
+    base: '/TernDropDoc/',
     lang: 'en-US',
     title: 'TernDrop',
     description: 'A static site for TernDrop',

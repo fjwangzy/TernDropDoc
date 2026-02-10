@@ -54,6 +54,35 @@ function generateNavbar() {
 }
 
 
+// 自动生成侧边栏
+function generateSidebar() {
+    const sidebar = {}
+
+    const items = fs.readdirSync(docsDir, { withFileTypes: true })
+
+    for (const item of items) {
+        if (!item.isDirectory()) continue
+        if (item.name.startsWith('.')) continue
+        if (item.name === 'assets') continue
+        if (item.name === 'node_modules') continue
+
+        const subDir = path.join(docsDir, item.name)
+        const files = fs.readdirSync(subDir)
+        const mdFiles = files.filter(f => f.endsWith('.md'))
+
+        if (mdFiles.length > 0) {
+            sidebar[`/${item.name}/`] = [
+                {
+                    text: item.name,
+                    children: mdFiles.map(f => `/${item.name}/${f}`),
+                }
+            ]
+        }
+    }
+
+    return sidebar
+}
+
 export default defineUserConfig({
     base: '/TernDropDoc/',
     lang: 'en-US',
@@ -93,5 +122,7 @@ export default defineUserConfig({
     theme: defaultTheme({
         logo: 'https://vuejs.org/images/logo.png',
         navbar: generateNavbar(),
+        sidebar: generateSidebar(),
+        sidebarDepth: 3,
     }),
 })

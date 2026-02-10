@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const docsDir = path.resolve(__dirname, 'docs')
+const docsDir = path.resolve(__dirname, '..')
 
 // 自动生成导航栏
 function generateNavbar() {

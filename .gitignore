@@ -1,0 +1,18 @@
+# Dependency directories
+node_modules/
+
+# VuePress generation
+docs/.vitepress/temp
+docs/.vitepress/cache
+docs/.vitepress/dist
+docs/.vitepress/public/assets
+
+# Obsidian
+.obsidian/
+.trash/
+
+# System
+.DS_Store
+Thumbs.db
+
+.obsidian/

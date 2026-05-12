@@ -2,12 +2,13 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/TernDropDoc/',
   title: "droptern",
   description: "help center",
   themeConfig: {
     outline: {
       level: 'deep',
-      label: '大纲'
+      label: 'outline'
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [

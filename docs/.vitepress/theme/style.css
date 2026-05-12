@@ -1,0 +1,13 @@
+/* docs/.vitepress/theme/style.css */
+:root {
+  /* Increase nav height to accommodate larger logo */
+  --vp-nav-height: 90px !important;
+}
+
+/* Target the VitePress logo image */
+.VPNavBarTitle .logo,
+.VPNavBarTitle .VPImage {
+  height: 72px !important; /* Default is usually 24px, so 3x is 72px */
+  max-height: 72px !important;
+  width: auto;
+}

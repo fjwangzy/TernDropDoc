@@ -6,18 +6,22 @@ export default defineConfig({
   title: "droptern",
   description: "help center",
   themeConfig: {
+    logo: '/logo.png',
+    logoLink: 'https://terndrop.com',
+    siteTitle: false,
     outline: {
       level: 'deep',
       label: 'outline'
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'How TernDrop Works', link: '/How TernDrop Works' },
       { text: 'Help Center', link: '/HelpCenter/Account&Settings' },
       // { text: 'Examples', link: '/markdown-examples' }
     ],
 
     sidebar: [
+       { text: 'How TernDrop Works', link: '/How TernDrop Works' },
       {
         text: 'Help Center',
         items: [
